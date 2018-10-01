@@ -1,47 +1,34 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type Person struct {
-	Age      int
-	Name     string
-	Nickname string
-}
-
-type Persons []Person
-
-func (p Person) ToString() string {
-	return fmt.Sprintf("Name=%s Nickname=%s, Age=%d", p.Name, p.Nickname, p.Age)
-}
-
-func (p *Person) Talk() {
-	fmt.Printf("Hello my name is %s, i'm %d years old and my nickname is %s booya\n", p.Name, p.Age, p.Nickname)
-}
-
-var peoples = Persons{
-	{
-		Age:      18,
-		Name:     "Alpha",
-		Nickname: "OumarPoulo",
-	},
-	{
-		Age:      14,
-		Name:     "Bambewel",
-		Nickname: "Majesty",
-	},
-	{
-		Age:      15,
-		Name:     "Aissatou",
-		Nickname: "Flash",
-	},
-	{
-		Age:      10,
-		Name:     "Idrissa",
-		Nickname: "Paikoun",
-	},
-}
+	"github.com/oumarPoulo/go-tutorials/structs"
+)
 
 func main() {
+	var peoples = structs.Persons{
+		{
+			Age:      18,
+			Name:     "Alpha",
+			Nickname: "OumarPoulo",
+		},
+		{
+			Age:      14,
+			Name:     "Bambewel",
+			Nickname: "Majesty",
+		},
+		{
+			Age:      15,
+			Name:     "Aissatou",
+			Nickname: "Flash",
+		},
+		{
+			Age:      10,
+			Name:     "Idrissa",
+			Nickname: "Paikoun",
+		},
+	}
 	// peoples will talk sequentially
 	for key, people := range peoples {
 		fmt.Println("current person == key:", key, " people=", people)
